@@ -1,0 +1,36 @@
+.service-form-wrapper{
+	width: 75%;
+	margin: 50px 0 0 0;
+}
+
+#addressInformation{
+	display: none;
+}
+
+#search-term{
+	min-width: 285px;
+}
+
+#locationField{
+	color: white;
+	background: darkorange;
+	padding: 35px;
+}
+
+#distanceFrom{
+	padding: 3px;
+	color: #666;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.archive-service ul{
+	margin-left: 0;
+}
+
+@media (max-width: 768px){
+	#locationField{
+		width: 100%;
+		padding: 10px;
+	}
+}
