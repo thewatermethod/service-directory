@@ -98,7 +98,6 @@
 		} 
 
 	</script>
-
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe710MLkkbulyOcOKU6G8vb1d8bA0X9YE&callback=initMap" async defer></script>
 
 

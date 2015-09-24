@@ -97,11 +97,11 @@ function save_servicedirectory_metaboxes( $post_id ){
     update_post_meta( $post_id, 'serviceState', sanitize_text_field($_POST['serviceState']) );
     update_post_meta( $post_id, 'serviceWebsite', sanitize_text_field($_POST['serviceWebsite']) );
     update_post_meta( $post_id, 'servicePhone', sanitize_text_field($_POST['servicePhone']) );
+    update_post_meta( $post_id, 'serviceEmail', sanitize_text_field($_POST['serviceEmail']) );
     update_post_meta( $post_id, 'serviceZip', sanitize_text_field($_POST['serviceZip']) );
     update_post_meta( $post_id, 'place_location', $_POST['place_location']);
 
     $serviceLogoAttachment = media_handle_upload( 'servicePhoto' , $post_id );
-
     
     if ( !is_wp_error( $serviceLogoAttachment ) ){ 
      
