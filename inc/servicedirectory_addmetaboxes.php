@@ -49,7 +49,7 @@ function add_servicedirectory_metaboxes_callback( $post ){
 
     $serviceLogoId = get_post_meta( $post->ID, 'serviceLogoId', true); 
     echo '<label for="servicePhoto">Logo</label>';
-    echo'<div style="clear:both;">' . wp_get_attachment_image( $serviceLogoId ) . '</div>';
+    echo '<div style="clear:both;">' . wp_get_attachment_image( $serviceLogoId ) . '</div>';
     echo '<input type="file" name="servicePhoto" class="widefat"><hr>';
 
     $beforeAndAfterId = get_post_meta( $post->ID, 'beforeAndAfterId', true); 
@@ -59,6 +59,16 @@ function add_servicedirectory_metaboxes_callback( $post ){
 
     $place_location = get_post_meta( $post->ID, 'place_location', true); 
     echo '<input type="hidden" name="place_location" id="place_location" value="'.$place_location.'" />';
+
+    $is_premium = get_post_meta( $post->ID, 'is_premium', true);
+    
+    echo '<label for="is_premium">Premium membership?</label>';
+
+    if ($is_premium){
+      echo '<input type="checkbox" name="is_premium" value="premium" checked style="margin-top:3px;margin-left:10px;" />';
+    } else{
+      echo '<input type="checkbox" name="is_premium" value="premium" style="margin-top:3px;margin-left:10px;" />';
+    }
    	
 }
 
@@ -100,6 +110,7 @@ function save_servicedirectory_metaboxes( $post_id ){
     update_post_meta( $post_id, 'serviceEmail', sanitize_text_field($_POST['serviceEmail']) );
     update_post_meta( $post_id, 'serviceZip', sanitize_text_field($_POST['serviceZip']) );
     update_post_meta( $post_id, 'place_location', $_POST['place_location']);
+    update_post_meta( $post_id, 'is_premium', $_POST['is_premium'] );
 
     $serviceLogoAttachment = media_handle_upload( 'servicePhoto' , $post_id );
     

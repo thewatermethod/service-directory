@@ -10,7 +10,7 @@
 			<article>
 			<header class="entry-header">
 				<h1>Add Your Service to Our Directory</h1>
-				</header><!-- .entry-header -->
+			</header><!-- .entry-header -->
 
 			<div class="entry-content">
 				<p>To become a premium member of our directory, where you will appear first and highlighted in search results, please <a href="http://www.roofcleaners.org/membership-application/" alt="Premium Membership Sign Up for <?php echo get_bloginfo('title');?>">sign up for a premium membership</a>.</p>
@@ -146,8 +146,10 @@
 		function fillInAddress() {
 		  // Get the place details from the autocomplete object.
 		  var place = autocomplete.getPlace();
-		  		  
+		  var streetNumberSet = false;		
+
 		  document.getElementById("place_location").value = place.geometry.location;
+		  document.getElementById("serviceAddress").value = '';
 
 		  for (var component in componentForm) {
 		    document.getElementById(component).value = '';
@@ -158,19 +160,23 @@
 		  // and fill the corresponding field on the form.
 		  for (var i = 0; i < place.address_components.length; i++) {
 		    var addressType = place.address_components[i].types[0];
-		    if (componentForm[addressType]) {
+		    if ( addressType === 'street_number' ) { 
+		    	document.getElementById('serviceAddress').value =  place.address_components[i]['short_name'] + ' ' + place.address_components[i+1]['short_name'];
+		    	streetNumberSet = true;
+		    } else if (addressType === 'route' && !streetNumberSet) {
+		    	document.getElementById('serviceAddress').value =  place.address_components[i]['short_name'];
+		    } else if (componentForm[addressType]) {
 		      var val = place.address_components[i][componentForm[addressType]];
 		      document.getElementById(addressType).value = val;
 		    }
 
 		  }
 
-		  document.getElementById('serviceAddress').value =  place.address_components[0]['short_name'] + ' ' + place.address_components[1]['short_name'];
 		  document.getElementById("addressInformation").style.display = 'block';
 		}
 
-		// Bias the autocomplete object to the user's geographical location,
-		// as supplied by the browser's 'navigator.geolocation' object.
+		// Bias the autocomplete object to the user's geographical location, as supplied by the browser's 'navigator.geolocation' object.
+
 		function geolocate() {
 			if (!autocomplete){
 
