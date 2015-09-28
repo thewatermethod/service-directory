@@ -50,7 +50,7 @@ function servicedirectory_addservice(){
 
       }
 
-      wp_redirect( home_url() . '/contact'  );
+      wp_redirect( home_url() . '/service?submitted=true'  );
       exit;
      
 

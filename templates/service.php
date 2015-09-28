@@ -7,7 +7,14 @@
 	require( plugin_dir_path( __FILE__ ) . '../inc/servicedirectory_mapsapikey.php');
 	
 
+
+
+
+
 ?>
+
+
+
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php 
 				$theID = get_the_ID(); 
@@ -23,6 +30,7 @@
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</header>
 
+	
 		<div class="entry-content single-service">
 			<div id="map"></div>
 			

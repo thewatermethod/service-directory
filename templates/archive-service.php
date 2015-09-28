@@ -7,6 +7,12 @@
 
 	require( plugin_dir_path( __FILE__ ) . '../inc/servicedirectory_mapsapikey.php');
 
+	$submitted = $_GET['submitted'];
+
+	if ($submitted === 'true'){
+		require( plugin_dir_path( __FILE__ ) . '../templates/form-submit.php');
+	}
+
 ?>
 	<div class="archive-service">
 
