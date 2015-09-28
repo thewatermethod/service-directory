@@ -3,6 +3,8 @@
 	
 		
 	get_header();
+
+	require( plugin_dir_path( __FILE__ ) . '../inc/servicedirectory_mapsapikey.php');
 	
 
 ?>
@@ -98,7 +100,7 @@
 		} 
 
 	</script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe710MLkkbulyOcOKU6G8vb1d8bA0X9YE&callback=initMap" async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apiKey; ?>&callback=initMap" async defer></script>
 
 
 <?php 

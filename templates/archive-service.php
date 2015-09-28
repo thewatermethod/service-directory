@@ -5,6 +5,8 @@
 
 	require( plugin_dir_path( __FILE__ ) . '../inc/servicedirectory_json.php');
 
+	require( plugin_dir_path( __FILE__ ) . '../inc/servicedirectory_mapsapikey.php');
+
 ?>
 	<div class="archive-service">
 
@@ -177,7 +179,7 @@
 
 	</script>
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe710MLkkbulyOcOKU6G8vb1d8bA0X9YE&libraries=geometry&callback=initMap" async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apiKey; ?>&libraries=geometry&callback=initMap" async defer></script>
 
 <?php 
 

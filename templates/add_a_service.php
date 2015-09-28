@@ -2,6 +2,7 @@
 	//template for add a service page
 	get_header();
 
+	require( plugin_dir_path( __FILE__ ) . '../inc/servicedirectory_mapsapikey.php');
 ?>
 
 	<div id="primary" class="content-area">
@@ -112,7 +113,7 @@
 	</div><!-- .content-area -->
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe710MLkkbulyOcOKU6G8vb1d8bA0X9YE&libraries=places"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apiKey; ?>&libraries=places"></script>
 
 	
 
