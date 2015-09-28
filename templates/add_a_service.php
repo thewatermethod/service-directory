@@ -21,13 +21,14 @@
 					<form enctype="multipart/form-data" encoding="multipart/form-data" action="" id="addServiceForm" name="addServiceForm" method="POST">
 					 
 					    <fieldset id="locationField">
-					    	<label for="locationField">Find your address with our quick search:  </label>
+					    	<label for="locationField">Search for the address of your service:  </label>
       						<input id="autocomplete" autocomplete="false" placeholder="Enter your address" onFocus="geolocate()" type="text"></input>
     					</fieldset>
 
     					<hr>
 
     					<div id="addressInformation">
+    						
 						    <fieldset>
 						        <label for="postTitle"><?php _e('Business Name:', 'framework') ?></label>
 						        <input type="text" name="postTitle" id="postTitle" class="required" value="<?php if ( isset( $_POST['postTitle'] ) ) echo $_POST['postTitle']; ?>" />
@@ -52,9 +53,9 @@
 
 						     <fieldset>
 						        <label for="serviceZip"><?php _e('Zip Code:', 'framework') ?></label>
-						 
-						          <input type="text" name="serviceZip" id="postal_code" class="required" value="<?php if ( isset( $_POST['serviceZip'] ) ) echo $_POST['serviceZip']; ?>" />
+						        <input type="text" name="serviceZip" id="postal_code" class="required" value="<?php if ( isset( $_POST['serviceZip'] ) ) echo $_POST['serviceZip']; ?>" />
 						    </fieldset>	 
+
 						</div>
 
 						<fieldset>

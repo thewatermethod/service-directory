@@ -49,6 +49,9 @@ function servicedirectory_addservice(){
         add_post_meta( $post_id, 'place_location', $_POST['place_location'] );
 
       }
+
+      wp_redirect( home_url() . '/contact'  );
+      exit;
      
 
 	}
