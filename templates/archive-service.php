@@ -30,6 +30,7 @@
 				</fieldset>
 			</div>
 			<div class="col-md-5">
+				<ul id="premiumRoofCleaners"></ul>
 				<ul id="roofCleanerList"></ul>
 			</div>
 		</div>

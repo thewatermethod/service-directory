@@ -23,6 +23,7 @@
 				$permalink = get_permalink();
 				$name = get_the_title();
 				$theID = get_the_ID(); 
+				$is_premium = get_post_meta( $theID, 'is_premium', true );
 				$theLocation = get_post_meta( $theID, 'place_location', true);
 				$search = array("(", ",", ")");
 				$replace = array(" ");
@@ -33,7 +34,8 @@
 					'name' => $name,
 					'longitude' => $theLocation[2],
 					'latitude' => $theLocation[1],
-					'url' => $permalink
+					'url' => $permalink,
+					'premium' => $is_premium
 
 				);
 
