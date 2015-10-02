@@ -7,11 +7,17 @@
 
 	require( plugin_dir_path( __FILE__ ) . '../inc/servicedirectory_mapsapikey.php');
 
-	$submitted = $_GET['submitted'];
+	if (  isset($_GET['submitted']) ) {
 
-	if ($submitted === 'true'){
-		require( plugin_dir_path( __FILE__ ) . '../templates/form-submit.php');
+		$submitted = $_GET['submitted'];
+
+		if ($submitted === 'true'){
+			require( plugin_dir_path( __FILE__ ) . '../templates/form-submit.php');
+		}
+
 	}
+
+
 
 ?>
 	<div class="archive-service">
@@ -86,8 +92,6 @@
 					window.location.href = this.url;
 				});
 			}
-
-
 			
 		}		
 
@@ -148,11 +152,12 @@
 						
 						var roofCleanerList = document.getElementById('roofCleanerList');
 						roofCleanerList.innerHTML = '';
+						var roofCleanersFound = false;
 
 						for( var i = 0; i < mapMarkers.length; i++ ){
 
 								if (distances[i].distance <= distance){
-
+									roofCleanersFound = true;
 									var listItem = document.createElement('li');
 									var listItemLink = document.createElement('a');
 
@@ -165,6 +170,12 @@
 					   				roofCleanerList.appendChild(listItem);
 					   			}
 					   	 
+						}
+
+						if (!roofCleanersFound){
+							var noneFound = document.createElement('p');
+							noneFound.appendChild( document.createTextNode('No services found in your area. Please expand your search.' ));
+							roofCleanerList.appendChild(noneFound);
 						}
 					
 						

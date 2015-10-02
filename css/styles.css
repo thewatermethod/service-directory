@@ -28,6 +28,10 @@
 	margin-left: 0;
 }
 
+.single-service .serviceDescription{
+	font-style: italic;
+}
+
 @media (max-width: 768px){
 	#locationField{
 		width: 100%;

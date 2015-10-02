@@ -18,6 +18,8 @@
 
 				<div class="service-form-wrapper">
 
+					<h2>First, search for your address in the box below: </h2>
+
 					<form enctype="multipart/form-data" encoding="multipart/form-data" action="" id="addServiceForm" name="addServiceForm" method="POST">
 					 
 					    <fieldset id="locationField">
@@ -27,13 +29,17 @@
 
     					<hr>
 
-    					<div id="addressInformation">
-    						
-						    <fieldset>
+    				<h2>Next, please confirm that the infomation below is accurate: </h2>
+
+    						 <fieldset>
 						        <label for="postTitle"><?php _e('Business Name:', 'framework') ?></label>
 						        <input type="text" name="postTitle" id="postTitle" class="required" value="<?php if ( isset( $_POST['postTitle'] ) ) echo $_POST['postTitle']; ?>" />
 						    </fieldset>
 
+
+
+    					<div id="addressInformation">
+    						
 						     <fieldset>
 						        <label for="serviceAddress"><?php _e('Address:', 'framework') ?></label>
 						        <input type="text" name="serviceAddress" id="serviceAddress" class="required" value="<?php if ( isset( $_POST['serviceAddress'] ) ) echo $_POST['serviceAddress']; ?>" />

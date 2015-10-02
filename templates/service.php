@@ -5,10 +5,6 @@
 	get_header();
 
 	require( plugin_dir_path( __FILE__ ) . '../inc/servicedirectory_mapsapikey.php');
-	
-
-
-
 
 
 ?>
@@ -30,7 +26,7 @@
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</header>
 
-	
+
 		<div class="entry-content single-service">
 			<div id="map"></div>
 			
@@ -40,36 +36,40 @@
 				</div>
 
 				<div class="col-md-6 col-md-offset-1 col-xs-12">
-					<p class="business-info-title">Business Info</p>
+					<h3 class="business-info-title">Contact Information:</h3>
 					<ul>
 						<li> Address: <?php echo get_post_meta( $theID, 'serviceAddress', true ); ?>, <?php echo get_post_meta( $theID, 'serviceCity', true ); ?> <?php echo get_post_meta( $theID, 'serviceState', true ); ?> <?php echo get_post_meta( $theID, 'serviceZip', true ); ?></li>
 						
 						<?php 
 							if ( get_post_meta( $theID, 'serviceWebsite', true ) ){ 
-								echo '<li><a href="' . get_post_meta( $theID, 'serviceWebsite', true ) . '">Website</a></li>';
+								echo '<li>Website: <a href="' . get_post_meta( $theID, 'serviceWebsite', true ) . '">' . get_post_meta( $theID, 'serviceWebsite', true ) . '</a></li>';
 							}
 
 							if ( get_post_meta( $theID, 'servicePhone', true ) ) {
-								echo '<li>Phone: ' .  get_post_meta( $theID, 'servicePhone', true ) . '</li>';
+								echo '<li>Phone: <a href="tel:"' .  get_post_meta( $theID, 'servicePhone', true ) .  '"">' .  get_post_meta( $theID, 'servicePhone', true ) . '</a></li>';
 							}
 							
 							if ( get_post_meta( $theID, 'serviceEmail', true ) ){
-								echo '<li>E-Mail: '. get_post_meta( $theID, 'serviceEmail', true ) .'</li>';
+								echo '<li> E-Mail: <a href="mailto:'. get_post_meta( $theID, 'serviceEmail', true ) . '"> '. get_post_meta( $theID, 'serviceEmail', true ) .'</a></li>';
 							}
 							
 						?>
 						
 					</ul>
 
-					<?php echo get_the_content(); ?>
+					<h3>Description of Services:</h3>
+
+						<div class="serviceDescription"><?php echo get_the_content(); ?></div>
 
 				</div>
 
 			</div>
 
-			<div class="row">
+			<div class="row" style="margin: 15px;">
 
-				<?php echo wp_get_attachment_image( $the_results_picture, 'full' ); ?>
+				<div class="col-md-10 col-md-offset-1">
+					<?php echo wp_get_attachment_image( $the_results_picture, 'full' ); ?>
+				</div>
 
 			</div>
 
