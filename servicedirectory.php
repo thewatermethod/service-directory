@@ -13,19 +13,19 @@
    ***************************************************************************************************/
 
 
-//  Add custom "service" post type
+//  Add custom "service" post type /ck
 require( 'inc/servicedirectory_addposttype.php' );
-
-// Add metaboxes
+ 
+// Add metaboxes /ck
 require( 'inc/servicedirectory_addmetaboxes.php' );
 
-// Runs when plugin is activated
+// Runs when plugin is activated /ck
 register_activation_hook(__FILE__,'servicedirectory_install'); 
 
-// Runs on plugin deactivation
+// Runs on plugin deactivation /ck
 register_deactivation_hook( __FILE__, 'servicedirectory_remove' );
 
-// add scripts and styles
+// add scripts and styles /ck
 require('inc/servicedirectory_enqueue.php');
 
 // add custom templates

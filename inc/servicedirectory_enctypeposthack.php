@@ -1,6 +1,6 @@
 <?php
 
-add_action('post_edit_form_tag', 'my_post_edit_form_tag');
+add_action('post_edit_form_tag', 'servicedirectory_edit_form_tag');
 /**
  * Callback for WordPress 'post_edit_form_tag' action.
  * 
@@ -11,7 +11,7 @@ add_action('post_edit_form_tag', 'my_post_edit_form_tag');
  * @global type $post
  * @return type
  */
-function my_post_edit_form_tag(){
+function servicedirectory_edit_form_tag(){
     
     global $post;
     

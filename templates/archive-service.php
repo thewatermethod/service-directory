@@ -17,8 +17,6 @@
 
 	}
 
-
-
 ?>
 	<div class="archive-service">
 
@@ -65,47 +63,47 @@
 
 		var locations = json.locations;
 
-		
+
 		function addMarkers() {
-						
+
 			for( var i = 0; i < locations.length; i++) {
-				
+
 				var lng = locations[i].longitude;
 				var lat = locations[i].latitude;
 				var position = new google.maps.LatLng( parseFloat(lat), parseFloat(lng) );
-			
-				mapMarkers[i] = { 
+
+				mapMarkers[i] = {
 					"name" : locations[i].name,
 					"position" : position,
 					"url" : locations[i].url
 				};
 
-				
+
 				var marker = new google.maps.Marker({
 					position: mapMarkers[i].position,
 					map: map,
 					title: mapMarkers[i].name,
 					url: locations[i].url
 				});
-				
+
 				marker.addListener( "click", function() {
 					window.location.href = this.url;
 				});
 			}
-			
-		}		
+
+		}
 
 		function initMap(){
-		
+
 			map = new google.maps.Map(document.getElementById('map'), {
     			center:  { lat: 41.697198, lng: -70.10251800000003},
 				zoom: 3
 			});
 
 			addMarkers();
-		}	 
+		}
 
-		function findClosestRoofCleaners(){	
+		function findClosestRoofCleaners(){
 
 			var currentLocation;
 			var searchTerm = document.getElementById("search-term").value;
@@ -116,9 +114,9 @@
 			for( var i = 0; i < distances.length; i++) {
 				distances[i] = null;
 			}
-			
+
 			gc.geocode(
-				
+
 				{ "address" : searchTerm },
 				function( results, status ){
 
@@ -126,7 +124,7 @@
 
 						currentLocation = results[0].geometry.location;
 						map.panTo( currentLocation );
-						
+
 						if (distance === 10){
 							map.setZoom(11);
 						} else if( distance === 25 ){
@@ -149,7 +147,7 @@
 
 						}
 
-						
+
 						var roofCleanerList = document.getElementById('roofCleanerList');
 						roofCleanerList.innerHTML = '';
 						var roofCleanersFound = false;
@@ -169,7 +167,7 @@
 
 					   				roofCleanerList.appendChild(listItem);
 					   			}
-					   	 
+
 						}
 
 						if (!roofCleanersFound){
@@ -177,8 +175,8 @@
 							noneFound.appendChild( document.createTextNode('No services found in your area. Please expand your search.' ));
 							roofCleanerList.appendChild(noneFound);
 						}
-					
-						
+
+
 					} else {
 
 						alert("Not a valid location. Please try again.");
@@ -187,7 +185,7 @@
 
 				});
 		}
-		
+
 		var calcDistance = function(p1,p2){
  			var unitInMiles = ((google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000) * 0.62137 ).toFixed(2);
  			return unitInMiles;
@@ -198,8 +196,8 @@
 
 	<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apiKey; ?>&libraries=geometry&callback=initMap" async defer></script>
 
-<?php 
+<?php
 
-	get_footer(); 
+	get_footer();
 
 ?>
